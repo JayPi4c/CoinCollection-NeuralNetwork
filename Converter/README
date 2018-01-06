@@ -1,0 +1,12 @@
+Diese Converter.jar muss sich in einem Ordner befinden, der ebenfalls 8 Ordner mit den Namen "1"
+bis "2" benannt sein müssen. In diesen Ordnern müssen sich .JPG (groß geschrieben) Bilddateien 
+befinden, die nach folgendem Prinzip benannt wurden:
+xIMGy.JPG
+x-> Nummer des Ordners (1--> 1ct | 7 --> 1€ | 0 --> 2€)
+y-> Nummer der Bilddatei
+
+Wird diese Datei nun ausgeführt werden die Bilder in ein csv Format gewandelt (in Grau)
+jede Zeile beginnt mit der Nummer des Ordners
+
+Sind die Dateien alle in den selben Maßen (zum Beispiel 50x50 Pixel) können die Dateien für ein
+neuronales Netz benutzt werden 
