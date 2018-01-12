@@ -13,7 +13,8 @@ import javax.imageio.ImageIO;
 
 public class Main {
 
-	public static final String lineSeparator = System.getProperty("line.separator");
+	public static final String lineSeparator = System
+			.getProperty("line.separator");
 
 	public static void main(String args[]) throws IOException {
 
@@ -23,22 +24,25 @@ public class Main {
 		if (!allInOneFile.exists())
 			allInOneFile.createNewFile();
 
-		BufferedWriter allWriter = new BufferedWriter(new FileWriter(allInOneFile));
+		BufferedWriter allWriter = new BufferedWriter(new FileWriter(
+				allInOneFile));
 
 		for (int i = 0; i <= 7; i++) {
 			File directory = new File(getExecutionPath() + "/" + i);
-			System.out.println("Directory " + directory.getAbsolutePath() + "; number of files inside: "
-					+ directory.list().length);
+			System.out.println("Directory " + directory.getAbsolutePath()
+					+ "; number of files inside: " + directory.list().length);
 			System.out.println();
 
-			finalFile = new File(directory.getParentFile().getAbsolutePath() + "/" + i + ".csv");
+			finalFile = new File(directory.getParentFile().getAbsolutePath()
+					+ "/" + i + ".csv");
 
 			if (!finalFile.exists())
 				finalFile.createNewFile();
 
 			BufferedWriter BW = new BufferedWriter(new FileWriter(finalFile));
 			for (int j = 1; j <= directory.list().length; j++) {
-				String path = directory.getPath() + "/" + i + "IMG" + j + ".JPG";
+				String path = directory.getPath() + "/" + i + "IMG" + j
+						+ ".JPG";
 				System.out.println("expected Path: " + path);
 				File f = new File(path);
 
@@ -68,7 +72,7 @@ public class Main {
 		}
 		allWriter.close();
 
-		shuffle(finalFile);
+		shuffle(allInOneFile);
 
 	}
 
@@ -82,7 +86,8 @@ public class Main {
 	public static void shuffle(File f) throws IOException {
 		int numberOfLines = getNumberOfLines(f);
 
-		File finalFile = new File(f.getParentFile().getAbsolutePath() + "/shuffledFile.csv");
+		File finalFile = new File(f.getParentFile().getAbsolutePath()
+				+ "/shuffledFile.csv");
 		finalFile.createNewFile();
 
 		ArrayList<Integer> pool = new ArrayList<Integer>();
@@ -90,8 +95,11 @@ public class Main {
 			pool.add(i);
 
 		BufferedWriter BW = new BufferedWriter(new FileWriter(finalFile));
-		while (pool.size() > 0)
-			BW.write(getLineOfFile(pool.remove((int) (Math.random() * pool.size())), f));
+		while (pool.size() > 0) {
+			BW.write(getLineOfFile(
+					pool.remove((int) (Math.random() * pool.size())), f));
+			BW.newLine();
+		}
 
 		BW.close();
 	}
