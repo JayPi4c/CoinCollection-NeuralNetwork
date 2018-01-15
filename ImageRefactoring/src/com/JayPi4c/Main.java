@@ -10,9 +10,9 @@ public class Main {
 
 	public static void main(String args[]) throws IOException {
 		System.out.println("Starting up");
-		int treshhold = 15;
+		int threshold = 15;
 		if (args[0] != null)
-			treshhold = Integer.parseInt(args[0]);
+			threshold = Integer.parseInt(args[0]);
 
 		boolean all = true;
 		int toEdit = 0;
@@ -26,7 +26,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("tresh: " + treshhold + "; all: " + all
+		System.out.println("threshold: " + threshold + "; all: " + all
 				+ "; toEdit: " + toEdit);
 
 		File currentDir = new File(getExecutionPath());
@@ -49,7 +49,7 @@ public class Main {
 			System.out.println(loc);
 			BufferedImage Image = ImageIO.read(new File(loc));
 
-			Editor e = new Editor(Image, treshhold);
+			Editor e = new Editor(Image, threshold);
 			BufferedImage newImage = e.edit();
 
 			ImageIO.write(newImage, "PNG",
