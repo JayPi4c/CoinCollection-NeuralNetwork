@@ -14,16 +14,16 @@ public class Editor {
 	public static final int LEFT = 2;
 	public static final int RIGHT = 3;
 
-	public int treshhold = 15;
+	public int threshold = 15;
 
 	public static final int EDGESPACER = 7;
 
 	private BufferedImage img;
 	private Boundaries bounds;
 
-	public Editor(BufferedImage img, int tresh) {
+	public Editor(BufferedImage img, int thresh) {
 		this.img = img;
-		this.treshhold = tresh;
+		this.threshold = thresh;
 	}
 
 	public BufferedImage edit() {
@@ -131,8 +131,8 @@ public class Editor {
 		int bG = b.getGreen();
 		int bB = b.getBlue();
 
-		if (Math.abs(aR - bR) > treshhold || Math.abs(aG - bG) > treshhold
-				|| Math.abs(aB - bB) > treshhold) {
+		if (Math.abs(aR - bR) > threshold || Math.abs(aG - bG) > threshold
+				|| Math.abs(aB - bB) > threshold) {
 			return true;
 		}
 
